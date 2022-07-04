@@ -11,19 +11,17 @@ console.log("middleware2")
 next()
 }
 
-
-
-
+app.use(middleware2)
 app.get("/one",middleware1,function(req,res){
      console.log("md1")
     res.send("one")
 })
 
-app.get("/two",middleware1,middleware2,function(req,res){
+app.get("/two",function(req,res){
     console.log("md2")
     res.send("two")
 })
-app.get("/three",middleware1,middleware2,function(req,res){
+app.get("/three",function(req,res){
     console.log("md3")
     res.send("three")
 })
